@@ -31,6 +31,7 @@ data "archive_file" "send_cloudwatch_alarms_to_slack" {
   source_dir  = "${path.module}/functions/send-cloudwatch-alarms-to-slack"
   output_path = "${path.module}/functions/send-cloudwatch-alarms-to-slack.zip"
 }
+
 # Upload ZIP archive with lambda to S3 bucket
 resource "aws_s3_object" "send_cloudwatch_alarms_to_slack" {
   bucket = aws_s3_bucket.lambda_bucket.id
